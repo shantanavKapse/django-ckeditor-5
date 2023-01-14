@@ -41,7 +41,7 @@ def handle_uploaded_file(f):
 
 
 def upload_file(request):
-    if request.method == "POST" and request.user.is_staff:
+    if request.method == "POST" and request.user.is_authenticated:
         form = UploadFileForm(request.POST, request.FILES)
         try:
             image_verify(request.FILES["upload"])
